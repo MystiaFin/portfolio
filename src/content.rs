@@ -1,12 +1,57 @@
 use leptos::prelude::*;
 
-const PROJECTS: [(&str, &str, &str); 6] = [
-    ("amane", "A framework for building Wayland desktop shells purely in Rust", "https://github.com/MystiaFin/amane"),
-    ("suzuha", "A Wayland desktop shell built on Amane", "https://github.com/MystiaFin/suzuha"),
-    ("scalar-engine", "Self-hosted expense tracker that reads receipts from Gmail with a local LLM", "https://github.com/MystiaFin/scalar-engine"),
-    ("scalar_mobile", "Flutter app that shows grouped transactions from a REST API", "https://github.com/MystiaFin/scalar_mobile"),
-    ("kemurnian-web", "Production school platform", "https://github.com/MystiaFin/kemurnian-web"),
-    ("JAQC-shell", "My QML desktop shell config", "https://github.com/MystiaFin/JAQC-shell"),
+struct Project {
+    name: &'static str,
+    description: &'static str,
+    language: &'static str,
+    // github's color for the language
+    color: &'static str,
+    url: &'static str,
+}
+
+const PROJECTS: [Project; 6] = [
+    Project {
+        name: "amane",
+        description: "A framework for building Wayland desktop shells purely in Rust",
+        language: "Rust",
+        color: "#dea584",
+        url: "https://github.com/MystiaFin/amane",
+    },
+    Project {
+        name: "suzuha",
+        description: "A Wayland desktop shell built on Amane",
+        language: "Rust",
+        color: "#dea584",
+        url: "https://github.com/MystiaFin/suzuha",
+    },
+    Project {
+        name: "scalar-engine",
+        description: "Self-hosted expense tracker that reads receipts from Gmail with a local LLM",
+        language: "Go",
+        color: "#00add8",
+        url: "https://github.com/MystiaFin/scalar-engine",
+    },
+    Project {
+        name: "scalar_mobile",
+        description: "Flutter app that shows grouped transactions from a REST API",
+        language: "Dart",
+        color: "#00b4ab",
+        url: "https://github.com/MystiaFin/scalar_mobile",
+    },
+    Project {
+        name: "kemurnian-web",
+        description: "Production school platform",
+        language: "TypeScript",
+        color: "#3178c6",
+        url: "https://github.com/MystiaFin/kemurnian-web",
+    },
+    Project {
+        name: "JAQC-shell",
+        description: "My QML desktop shell config",
+        language: "QML",
+        color: "#44a51c",
+        url: "https://github.com/MystiaFin/JAQC-shell",
+    },
 ];
 
 #[component]
@@ -33,15 +78,19 @@ pub fn Projects() -> impl IntoView {
             <ul>
                 {PROJECTS
                     .into_iter()
-                    .map(|(name, description, url)| view! {
+                    .map(|project| view! {
                         <li>
-                            <a href=url>
+                            <a href=project.url>
                                 <div class="pl-2 sm:pl-3 relative py-3 sm:py-5 font-extralight border-b border-black overflow-hidden group">
                                     <span class="relative z-10 block transition-colors duration-300 group-hover:text-white text-sm sm:text-base">
-                                        {name}
+                                        {project.name}
                                     </span>
                                     <span class="relative z-10 block transition-colors duration-300 text-gray-500 group-hover:text-gray-300 text-xs sm:text-sm">
-                                        {description}
+                                        {project.description}
+                                    </span>
+                                    <span class="relative z-10 mt-1.5 flex items-center gap-1.5 transition-colors duration-300 text-gray-500 group-hover:text-gray-300 text-xs">
+                                        <span class="w-2 h-2 rounded-full" style:background=project.color></span>
+                                        {project.language}
                                     </span>
                                 </div>
                             </a>
