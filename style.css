@@ -77,3 +77,32 @@
 .group:hover::before {
   transform: scaleX(1);
 }
+
+/*
+ * fades out over the first 40px of page scroll, no js.
+ * browsers without scroll timelines keep it visible,
+ * it scrolls off with the hero anyway
+ */
+.scroll-hint {
+  animation: scroll-hint-fade linear both;
+  animation-timeline: scroll();
+  animation-range: 0 40px;
+}
+
+@keyframes scroll-hint-fade {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-hint-arrow {
+    animation: scroll-hint-nudge 2s ease-in-out infinite;
+  }
+}
+
+@keyframes scroll-hint-nudge {
+  50% {
+    transform: translateY(4px);
+  }
+}

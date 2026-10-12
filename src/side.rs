@@ -119,13 +119,20 @@ pub fn SideSectionMobile() -> impl IntoView {
     view! {
         <div class="mb-8 px-4">
             // fills the screen below the page's 2rem top margin + padding
-            <div class="min-h-[calc(100svh-2rem)] flex flex-col justify-center">
+            <div class="relative min-h-[calc(100svh-2rem)] flex flex-col justify-center">
                 <div class="text-center mb-6">
                     <h2 class="text-4xl font-extralight">"This is,"</h2>
                     <h1 class="text-6xl font-light">"MystiaFin"</h1>
                 </div>
 
                 <div class="my-6 w-full h-[1px] bg-black"></div>
+
+                <div class="scroll-hint absolute bottom-8 inset-x-0 flex flex-col items-center text-gray-400 pointer-events-none">
+                    <span class="text-xs font-extralight tracking-widest">"scroll"</span>
+                    <svg class="scroll-hint-arrow w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
+                </div>
             </div>
 
             <div class="mb-6 mt-80">

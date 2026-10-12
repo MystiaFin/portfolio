@@ -15,10 +15,13 @@ pub fn year() -> u32 {
 fn App() -> impl IntoView {
     view! {
         <main class="m-4 p-4 flex justify-center">
-            <div
-                class="w-96 h-96 rounded-full absolute -z-10 -top-20 left-10"
-                style="background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.015) 50%, rgba(0,0,0,0) 75%)"
-            ></div>
+            // the glow is wider than a phone, so clip it to the screen width
+            <div class="absolute inset-x-0 top-0 h-80 overflow-hidden -z-10 pointer-events-none">
+                <div
+                    class="w-96 h-96 rounded-full absolute -top-20 left-10"
+                    style="background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.015) 50%, rgba(0,0,0,0) 75%)"
+                ></div>
+            </div>
             <div class="hidden md:block">
                 <side::SideSection />
             </div>
