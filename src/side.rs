@@ -131,8 +131,12 @@ pub fn SideSectionMobile() -> impl IntoView {
              * so the hero is exactly one screen tall
              */
             <div class="relative -mt-8 min-h-svh flex flex-col justify-center">
-                // the line hangs below the text so only the text is centered
-                <div class="relative text-center">
+                /*
+                 * centers the ink of text + line as one unit, measured:
+                 * the line hangs 1.65rem below the text's ink center.
+                 * 2svh more puts it on the optical center, just above the middle
+                 */
+                <div class="relative text-center -translate-y-[calc(1.65rem+2svh)]">
                     <h2 class="text-4xl font-extralight">"This is,"</h2>
                     <h1 class="text-[min(3.75rem,14vw)] font-light">"MystiaFin"</h1>
                     <div class="absolute inset-x-0 top-full mt-12 h-[1px] bg-black"></div>
