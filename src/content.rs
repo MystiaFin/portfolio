@@ -81,7 +81,7 @@ pub fn Projects() -> impl IntoView {
                     .map(|project| view! {
                         <li>
                             <a href=project.url>
-                                <div class="pl-2 sm:pl-3 relative py-3 sm:py-5 font-extralight border-b border-black overflow-hidden group">
+                                <div class="pl-2 sm:pl-3 relative py-3 sm:py-5 font-light border-b border-black overflow-hidden group">
                                     <span class="relative z-10 block transition-colors duration-300 group-hover:text-white text-sm sm:text-base">
                                         {project.name}
                                     </span>
