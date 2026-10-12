@@ -84,7 +84,7 @@ fn Connections(big: bool) -> impl IntoView {
 #[component]
 pub fn SideSection() -> impl IntoView {
     view! {
-        <main class="ml-5 mr-6 max-w-sm mt-5 border-r border-gray-900 sticky top-0">
+        <main class="ml-5 mr-6 max-w-sm mt-5 border-r border-gray-900">
             <div class="ml-2">
                 <h2 class="text-2xl font-extralight">"This is,"</h2>
                 <h1 class="text-4xl font-light">"MystiaFin"</h1>
