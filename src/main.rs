@@ -22,7 +22,7 @@ fn App() -> impl IntoView {
                     style="background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.015) 50%, rgba(0,0,0,0) 75%)"
                 ></div>
             </div>
-            <div class="hidden md:block sticky top-0 self-start">
+            <div class="hidden md:block sticky top-8 self-start">
                 <side::SideSection />
             </div>
             <div class="min-w-0 w-full md:w-auto">
