@@ -25,7 +25,7 @@ fn App() -> impl IntoView {
             <div class="hidden md:block">
                 <side::SideSection />
             </div>
-            <div>
+            <div class="min-w-0 w-full md:w-auto">
                 <div class="md:hidden">
                     <side::SideSectionMobile />
                 </div>

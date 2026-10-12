@@ -80,13 +80,15 @@
 
 /*
  * fades out over the first 40px of page scroll, no js.
- * browsers without scroll timelines keep it visible,
- * it scrolls off with the hero anyway
+ * @supports matters: without scroll timelines the animation
+ * runs instantly and leaves the hint at opacity 0
  */
-.scroll-hint {
-  animation: scroll-hint-fade linear both;
-  animation-timeline: scroll();
-  animation-range: 0 40px;
+@supports (animation-timeline: scroll()) {
+  .scroll-hint {
+    animation: scroll-hint-fade linear both;
+    animation-timeline: scroll();
+    animation-range: 0 40px;
+  }
 }
 
 @keyframes scroll-hint-fade {

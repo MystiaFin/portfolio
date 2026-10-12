@@ -122,7 +122,7 @@ pub fn SideSectionMobile() -> impl IntoView {
             <div class="relative min-h-[calc(100svh-2rem)] flex flex-col justify-center">
                 <div class="text-center mb-6">
                     <h2 class="text-4xl font-extralight">"This is,"</h2>
-                    <h1 class="text-6xl font-light">"MystiaFin"</h1>
+                    <h1 class="text-[min(3.75rem,14vw)] font-light">"MystiaFin"</h1>
                 </div>
 
                 <div class="my-6 w-full h-[1px] bg-black"></div>
