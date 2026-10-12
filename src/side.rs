@@ -8,21 +8,21 @@ macro_rules! icon {
 }
 
 const STACKS: [(&str, &str); 8] = [
-    ("NextJS", icon!("nextjs")),
-    ("React", icon!("react")),
-    ("TailwindCSS", icon!("tailwindcss")),
-    ("NodeJS", icon!("nodejs")),
-    ("ExpressJS", icon!("expressjs")),
-    ("PostgreSQL", icon!("postgresql")),
-    ("Prisma", icon!("prisma")),
+    ("Rust", icon!("rust")),
+    ("Go", icon!("go")),
     ("TypeScript", icon!("typescript")),
+    ("React", icon!("react")),
+    ("NextJS", icon!("nextjs")),
+    ("Laravel", icon!("laravel")),
+    ("PostgreSQL", icon!("postgresql")),
+    ("NixOS", icon!("nixos")),
 ];
 
 const CONNECTIONS: [(&str, &str, &str); 4] = [
     ("GitHub", icon!("github"), "https://github.com/mystiafin"),
     ("Instagram", icon!("instagram"), "https://instagram.com/mystiafin"),
     ("Discord", icon!("discord"), "https://discordapp.com/users/331269525989490688"),
-    ("Email", icon!("mail"), "mailto:cytrsx01@gmail.com"),
+    ("Email", icon!("mail"), "mailto:mystiafin@gmail.com"),
 ];
 
 // <img> keeps each svg's own <style> from leaking into the page
@@ -94,7 +94,7 @@ pub fn SideSection() -> impl IntoView {
 
             <div class="ml-2">
                 <p class="mb-4 text-md font-extralight">
-                    "Full-stack Web Developer." <br /> "Mostly with these stacks:"
+                    "Full-stack developer, lately in Rust." <br /> "Mostly with these stacks:"
                 </p>
                 <div class="flex flex-wrap gap-2">
                     <Stacks />
@@ -127,7 +127,7 @@ pub fn SideSectionMobile() -> impl IntoView {
 
             <div class="mb-6 mt-80">
                 <p class="mb-4 text-md font-extralight text-center">
-                    "Full-stack Web Developer." <br /> "Mostly with these stacks:"
+                    "Full-stack developer, lately in Rust." <br /> "Mostly with these stacks:"
                 </p>
                 <div class="flex flex-wrap gap-2 justify-center">
                     <Stacks />
