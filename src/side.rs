@@ -116,18 +116,32 @@ pub fn SideSection() -> impl IntoView {
 
 #[component]
 pub fn SideSectionMobile() -> impl IntoView {
+    let (scrolled, set_scrolled) = signal(false);
+
+    let _ = window_event_listener(leptos::ev::scroll, move |_| {
+        let scroll_y = window().scroll_y().unwrap_or(0.0);
+
+        set_scrolled.set(scroll_y > 0.0);
+    });
+
     view! {
         <div class="mb-8 px-4">
-            // fills the screen below the page's 2rem top margin + padding
-            <div class="relative min-h-[calc(100svh-2rem)] flex flex-col justify-center">
-                <div class="text-center mb-6">
+            /*
+             * -mt-8 cancels the page's 2rem top margin + padding,
+             * so the hero is exactly one screen tall
+             */
+            <div class="relative -mt-8 min-h-svh flex flex-col justify-center">
+                // the line hangs below the text so only the text is centered
+                <div class="relative text-center">
                     <h2 class="text-4xl font-extralight">"This is,"</h2>
                     <h1 class="text-[min(3.75rem,14vw)] font-light">"MystiaFin"</h1>
+                    <div class="absolute inset-x-0 top-full mt-12 h-[1px] bg-black"></div>
                 </div>
 
-                <div class="my-6 w-full h-[1px] bg-black"></div>
-
-                <div class="scroll-hint absolute bottom-8 inset-x-0 flex flex-col items-center text-gray-400 pointer-events-none">
+                <div
+                    class="absolute bottom-8 inset-x-0 flex flex-col items-center text-gray-400 pointer-events-none transition-opacity duration-300"
+                    class=("opacity-0", scrolled)
+                >
                     <span class="text-xs font-extralight tracking-widest">"scroll"</span>
                     <svg class="scroll-hint-arrow w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="m6 9 6 6 6-6" />
