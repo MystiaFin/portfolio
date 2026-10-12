@@ -118,12 +118,15 @@ pub fn SideSection() -> impl IntoView {
 pub fn SideSectionMobile() -> impl IntoView {
     view! {
         <div class="mb-8 px-4">
-            <div class="text-center mb-6 mt-48">
-                <h2 class="text-4xl font-extralight">"This is,"</h2>
-                <h1 class="text-6xl font-light">"MystiaFin"</h1>
-            </div>
+            // fills the screen below the page's 2rem top margin + padding
+            <div class="min-h-[calc(100svh-2rem)] flex flex-col justify-center">
+                <div class="text-center mb-6">
+                    <h2 class="text-4xl font-extralight">"This is,"</h2>
+                    <h1 class="text-6xl font-light">"MystiaFin"</h1>
+                </div>
 
-            <div class="my-6 w-full h-[1px] bg-black"></div>
+                <div class="my-6 w-full h-[1px] bg-black"></div>
+            </div>
 
             <div class="mb-6 mt-80">
                 <p class="mb-4 text-md font-extralight text-center">
