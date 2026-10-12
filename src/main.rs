@@ -1,0 +1,38 @@
+use leptos::prelude::*;
+
+mod content;
+mod side;
+
+fn main() {
+    leptos::mount::mount_to_body(App);
+}
+
+pub fn year() -> u32 {
+    js_sys::Date::new_0().get_full_year()
+}
+
+#[component]
+fn App() -> impl IntoView {
+    view! {
+        <main class="m-4 p-4 flex justify-center">
+            <div
+                class="w-96 h-96 rounded-full absolute -z-10 -top-20 left-10"
+                style="background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.015) 50%, rgba(0,0,0,0) 75%)"
+            ></div>
+            <div class="hidden md:block">
+                <side::SideSection />
+            </div>
+            <div>
+                <div class="md:hidden">
+                    <side::SideSectionMobile />
+                </div>
+                <content::QuickSummary />
+                <content::Projects />
+
+                <div class="mt-10 md:hidden text-center">
+                    <p class="text-sm text-gray-500">"© " {year()} " MystiaFin"</p>
+                </div>
+            </div>
+        </main>
+    }
+}

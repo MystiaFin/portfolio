@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@source "./src";
+
+@theme {
+  --font-sans: Poppins, sans-serif;
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 200;
+  font-display: swap;
+  src: url(fonts/poppins-200.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 300;
+  font-display: swap;
+  src: url(fonts/poppins-300.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/poppins-400.woff2) format("woff2");
+}
+.connection-btn {
+  background-color: #111;
+  color: white;
+  border: 1px solid #222;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.connection-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  background-color: #1a1a1a;
+  box-shadow:
+    0 8px 32px rgba(255, 255, 255, 0.1),
+    0 4px 16px rgba(255, 255, 255, 0.05);
+  z-index: 10;
+}
+
+.connection-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 80px at var(--x, 50%) var(--y, 50%),
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.connection-btn:hover::before {
+  opacity: 1;
+}
+
+.group::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #1a1b1c;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-out;
+  z-index: 0;
+}
+
+.group:hover::before {
+  transform: scaleX(1);
+}

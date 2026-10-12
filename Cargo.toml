@@ -1,0 +1,13 @@
+[package]
+name = "portfolio"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+js-sys = "0.3.106"
+leptos = { version = "0.8.22", features = ["csr"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
