@@ -153,7 +153,7 @@ pub fn SideSectionMobile() -> impl IntoView {
                 </div>
             </div>
 
-            <div class="mb-6 mt-80">
+            <div class="mb-6 mt-16">
                 <p class="mb-4 text-md font-extralight text-center">
                     "Full-stack developer, lately in Rust." <br /> "Mostly with these stacks:"
                 </p>
